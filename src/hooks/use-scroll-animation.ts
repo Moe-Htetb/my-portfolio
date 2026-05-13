@@ -5,7 +5,7 @@ import { useInView, type UseInViewOptions } from "framer-motion";
 
 interface UseScrollAnimationOptions {
   once?: boolean;
-  margin?: string;
+  margin?: any;
   amount?: "some" | "all" | number;
 }
 
