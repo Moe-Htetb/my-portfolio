@@ -46,11 +46,11 @@ export function Hero() {
       className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden pattern-grid"
     >
       {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-32 h-72 w-72 gradient-orb bg-cyan-accent/20 animate-float" />
-      <div className="absolute bottom-1/4 -right-32 h-96 w-96 gradient-orb bg-indigo-accent/15 animate-float [animation-delay:2s]" />
-      <div className="absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 gradient-orb bg-emerald-accent/10 animate-pulse-slow" />
+      <div className="absolute top-1/4 -left-32 h-48 w-48 sm:h-72 sm:w-72 gradient-orb bg-cyan-accent/20 animate-float" />
+      <div className="absolute bottom-1/4 -right-32 h-56 w-56 sm:h-96 sm:w-96 gradient-orb bg-indigo-accent/15 animate-float [animation-delay:2s]" />
+      <div className="absolute top-1/2 left-1/2 h-32 w-32 sm:h-48 sm:w-48 -translate-x-1/2 -translate-y-1/2 gradient-orb bg-emerald-accent/10 animate-pulse-slow" />
 
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 lg:flex-row lg:gap-16">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col-reverse items-center gap-6 px-4 py-20 sm:gap-10 sm:px-6 sm:py-0 lg:flex-row lg:gap-16">
         {/* Left — Text Content */}
         <motion.div
           variants={containerVariants}
@@ -59,9 +59,9 @@ export function Hero() {
           className="flex-1 text-center lg:text-left"
         >
           {/* Status badge */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-accent/50 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-emerald-accent animate-pulse-slow" />
+          <motion.div variants={itemVariants} className="mb-4 sm:mb-8">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-accent/50 px-3 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-medium text-muted-foreground backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-accent animate-pulse-slow" />
               Available for opportunities
             </span>
           </motion.div>
@@ -69,7 +69,7 @@ export function Hero() {
           {/* Name */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+            className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
             {PERSONAL.name}
             <span className="text-cyan-accent">.</span>
@@ -78,7 +78,7 @@ export function Hero() {
           {/* Title */}
           <motion.p
             variants={itemVariants}
-            className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl"
+            className="mt-2 text-base font-medium text-muted-foreground sm:mt-4 sm:text-lg md:text-xl"
           >
             {PERSONAL.title}
           </motion.p>
@@ -86,7 +86,7 @@ export function Hero() {
           {/* Tagline */}
           <motion.p
             variants={itemVariants}
-            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground/80 lg:mx-0"
+            className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground/80 sm:mt-6 sm:text-base lg:mx-0"
           >
             {PERSONAL.tagline}
           </motion.p>
@@ -94,36 +94,38 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+            className="mt-6 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4 lg:justify-start"
           >
             <Button
               size="lg"
               onClick={scrollToProjects}
-              className="group gap-2 rounded-full bg-foreground px-8 text-background hover:bg-foreground/90"
+              className="group w-full gap-2 rounded-full bg-foreground px-8 text-background hover:bg-foreground/90 sm:w-auto"
             >
               View Projects
               <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={scrollToContact}
-              className="gap-2 rounded-full border-border/60 px-8 hover:bg-accent"
-            >
-              <Send className="h-4 w-4" />
-              Contact Me
-            </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              asChild
-              className="gap-2 rounded-full px-8 hover:bg-accent"
-            >
-              <a href={PERSONAL.github} target="_blank" rel="noopener noreferrer">
-                <GithubIcon className="h-4 w-4" />
-                GitHub
-              </a>
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={scrollToContact}
+                className="gap-2 rounded-full border-border/60 px-6 hover:bg-accent sm:px-8"
+              >
+                <Send className="h-4 w-4" />
+                Contact Me
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                asChild
+                className="gap-2 rounded-full px-6 hover:bg-accent sm:px-8"
+              >
+                <a href={PERSONAL.github} target="_blank" rel="noopener noreferrer">
+                  <GithubIcon className="h-4 w-4" />
+                  GitHub
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -134,7 +136,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative shrink-0"
         >
-          <div className="relative h-64 w-64 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+          <div className="relative h-44 w-44 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-96 lg:w-96">
             {/* Glow ring */}
             <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-cyan-accent/30 via-indigo-accent/20 to-emerald-accent/10 blur-xl" />
             {/* Border ring */}
@@ -147,7 +149,7 @@ export function Hero() {
                 fill
                 priority
                 className="object-cover"
-                sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                sizes="(max-width: 640px) 176px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
               />
             </div>
           </div>
@@ -159,7 +161,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 sm:block sm:bottom-8"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
