@@ -115,62 +115,80 @@ export const SKILLS: SkillCategory[] = [
 export const PROJECTS: Project[] = [
   {
     id: "p1",
-    title: "TaskFlow Pro",
+    title: "NITE",
     description:
-      "A full-stack project management platform with real-time collaboration, Kanban boards, and team analytics. Built with a focus on clean architecture and security.",
-    image: "/projects/taskflow.webp",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zustand", "Docker"],
-    githubUrl: "https://github.com/Moe-Htetb",
-    liveUrl: "#",
+      "A full-stack web application with a TypeScript-based client and server architecture. Features a modern monorepo structure with dedicated frontend and backend.",
+    image: "/projects/nite.webp",
+    techStack: ["TypeScript", "React", "Node.js", "Express.js", "MongoDb"],
+    githubUrl: "https://github.com/Moe-Htetb/NITE",
     featured: true,
   },
   {
     id: "p2",
-    title: "SecureAuth API",
+    title: "MMSIT Voucher App",
     description:
-      "A production-ready authentication and authorization service with JWT, OAuth 2.0, rate limiting, and comprehensive security middleware.",
-    image: "/projects/secureauth.webp",
-    techStack: ["Node.js", "Express.js", "JWT", "OAuth", "MongoDB", "Redis"],
-    githubUrl: "https://github.com/Moe-Htetb",
+      "A POS (Point of Sale) UI application built progressively — from useState to Zustand for state management, with a Next.js frontend and Laravel API backend.",
+    image: "/projects/mmsit.webp",
+    techStack: ["React", "Next.js", "Zustand", "JavaScript", "Laravel", "CSS"],
+    githubUrl: "https://github.com/Moe-Htetb/mmsit",
+    liveUrl: "https://voucher-app-nu.vercel.app",
     featured: true,
   },
   {
     id: "p3",
-    title: "DevConnect Mobile",
+    title: "Developer Portfolio",
     description:
-      "A cross-platform mobile app for developers to network, share projects, and collaborate. Features real-time chat and push notifications.",
-    image: "/projects/devconnect.webp",
-    techStack: ["React Native", "Expo", "Redux Toolkit", "Node.js", "MongoDB"],
-    githubUrl: "https://github.com/Moe-Htetb",
-  },
-  {
-    id: "p4",
-    title: "NetShield Scanner",
-    description:
-      "A network defense and vulnerability scanning tool with automated reporting, traffic analysis, and SQL injection detection.",
-    image: "/projects/netshield.webp",
-    techStack: ["Node.js", "Express.js", "PostgreSQL", "Docker", "Nginx"],
-    githubUrl: "https://github.com/Moe-Htetb",
-  },
-  {
-    id: "p5",
-    title: "EduPlatform LMS",
-    description:
-      "A learning management system for online courses with video streaming, progress tracking, quizzes, and instructor dashboards.",
-    image: "/projects/eduplatform.webp",
-    techStack: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS", "SWR", "Zod"],
-    githubUrl: "https://github.com/Moe-Htetb",
-    liveUrl: "#",
+      "A modern, minimalist developer portfolio built with Next.js and TypeScript. Features dark mode, smooth animations with Framer Motion, and responsive design.",
+    image: "/projects/portfolio.webp",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn/ui"],
+    githubUrl: "https://github.com/Moe-Htetb/my-portfolio",
+    liveUrl: "https://my-portfolio-omega-seven-58.vercel.app",
     featured: true,
   },
   {
-    id: "p6",
-    title: "CloudDeploy CLI",
+    id: "p4",
+    title: "DoS Rate Limiter Demo",
     description:
-      "A CLI tool that simplifies deployment to DigitalOcean with Docker, automated Nginx configuration, and SSL certificate management.",
-    image: "/projects/clouddeploy.webp",
-    techStack: ["Node.js", "Docker", "Nginx", "Cloudflare", "DigitalOcean"],
-    githubUrl: "https://github.com/Moe-Htetb",
+      "A demo application showcasing rate limiting and API hardening techniques. Send requests from a browser frontend to a Node.js/Express backend to see rate limiting in action.",
+    image: "/projects/dos.webp",
+    techStack: ["Node.js", "Express.js", "express-rate-limit", "JavaScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/Moe-Htetb/dos",
+  },
+  {
+    id: "p5",
+    title: "Learn Fullstack",
+    description:
+      "A comprehensive fullstack learning repository covering React, Shadcn UI, React Router, Prisma, and backend development with practical project-based exercises.",
+    image: "/projects/fullstack.webp",
+    techStack: ["React", "TypeScript", "Shadcn/ui", "React Router", "Prisma", "Node.js"],
+    githubUrl: "https://github.com/Moe-Htetb/Learn-Fullstack",
+  },
+  {
+    id: "p6",
+    title: "Learn React Native",
+    description:
+      "A React Native learning project featuring multiple mobile apps including a shop app, built with Expo and TypeScript for cross-platform development.",
+    image: "/projects/reactnative.webp",
+    techStack: ["React Native", "Expo", "TypeScript"],
+    githubUrl: "https://github.com/Moe-Htetb/Learn-ReactNative",
+  },
+  {
+    id: "p7",
+    title: "Student Grading System",
+    description:
+      "A university project for managing student grades across multiple semesters and specializations (CS/CT). Features admin management, CRUD operations, and authentication.",
+    image: "/projects/grading.webp",
+    techStack: ["PHP", "MySQL", "JavaScript", "CSS"],
+    githubUrl: "https://github.com/Moe-Htetb/StudentGradingSystem",
+  },
+  {
+    id: "p8",
+    title: "Kid's Quiz Zone",
+    description:
+      "An interactive quiz application designed for children, built with Java. Features a quiz database, engaging UI, and educational content for young learners.",
+    image: "/projects/quizzone.webp",
+    techStack: ["Java", "MySQL", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/Moe-Htetb/Kid-s-Quiz-Zone",
   },
 ];
 
