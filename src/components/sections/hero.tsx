@@ -31,7 +31,12 @@ const itemVariants = {
   },
 };
 
-export function Hero() {
+interface HeroProps {
+  /** Set to true once the preloader has fully exited */
+  ready?: boolean;
+}
+
+export function Hero({ ready = true }: HeroProps) {
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -55,7 +60,7 @@ export function Hero() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={ready ? "visible" : "hidden"}
           className="flex-1 text-center lg:text-left"
         >
           {/* Status badge */}
@@ -132,7 +137,7 @@ export function Hero() {
         {/* Right — Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative shrink-0"
         >
@@ -159,7 +164,7 @@ export function Hero() {
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={ready ? { opacity: 1 } : { opacity: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
         className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 sm:block sm:bottom-8"
       >

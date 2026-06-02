@@ -260,3 +260,164 @@
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.5 0 0 / 0.5);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PRELOADER
+   Self-contained — no Tailwind utilities used here so it is always available
+   regardless of purge/JIT settings.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Design tokens for the preloader (reference the portfolio palette) */
+:root {
+  --preloader-bg:       oklch(0.06 0.008 260);
+  --preloader-panel-a: oklch(0.10 0.010 260);
+  --preloader-panel-b: oklch(0.08 0.008 260);
+  --preloader-accent:  oklch(0.10 0.010 260);
+  --preloader-cyan:    oklch(0.75 0.14 195);
+  --preloader-indigo:  oklch(0.70 0.17 265);
+  --preloader-emerald: oklch(0.72 0.16 155);
+  --preloader-text:    oklch(0.95 0 0);
+}
+
+/* Root overlay — covers the entire viewport, sits on top of everything */
+.preloader-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--preloader-bg);
+  /* Subtle dot texture */
+  background-image:
+    radial-gradient(circle, oklch(0.8 0 0 / 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Curtain panels ─────────────────────────────────────────────────────── */
+.preloader-panel {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.preloader-panel--a {
+  background: var(--preloader-panel-a);
+  /* The SVG wave is absolutely positioned at the bottom of this panel */
+  overflow: visible;
+}
+
+.preloader-panel--b {
+  background: var(--preloader-panel-b);
+  opacity: 0.6;
+}
+
+/* ── SVG wave (trailing organic edge of panel A) ─────────────────────── */
+.preloader-wave {
+  position: absolute;
+  bottom: -18%;          /* slightly outside panel edge for smooth blending */
+  left: 0;
+  width: 100%;
+  height: 22%;
+  pointer-events: none;
+  transform-origin: top center;
+}
+
+/* ── Thin glowing accent line at the trailing edge ──────────────────────── */
+.preloader-glow-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--preloader-cyan) 30%,
+    var(--preloader-indigo) 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 12px 2px oklch(0.75 0.14 195 / 0.6),
+    0 0 40px 8px oklch(0.70 0.17 265 / 0.3);
+}
+
+/* ── Central content area ───────────────────────────────────────────────── */
+.preloader-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Monogram SVG container ─────────────────────────────────────────────── */
+.preloader-monogram {
+  width: clamp(80px, 14vw, 128px);
+  height: clamp(80px, 14vw, 128px);
+  filter:
+    drop-shadow(0 0 18px oklch(0.75 0.14 195 / 0.45))
+    drop-shadow(0 0 48px oklch(0.70 0.17 265 / 0.25));
+}
+
+/* ── Progress counter ───────────────────────────────────────────────────── */
+.preloader-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.15em;
+  font-family: var(--font-geist-mono, 'Courier New', monospace);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: var(--preloader-text);
+  line-height: 1;
+}
+
+.preloader-counter__pct {
+  font-size: 0.45em;
+  font-weight: 300;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  margin-top: 0.3em;
+}
+
+/* ── Loading label ──────────────────────────────────────────────────────── */
+.preloader-label {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: oklch(0.95 0 0 / 0.4);
+  margin: 0;
+}
+
+/* ── Horizontal scan line ───────────────────────────────────────────────── */
+.preloader-scan-line {
+  width: clamp(120px, 20vw, 200px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--preloader-cyan) 40%,
+    var(--preloader-indigo) 60%,
+    transparent
+  );
+  transform-origin: left center;
+  box-shadow: 0 0 8px 1px oklch(0.75 0.14 195 / 0.5);
+}
+
+/* ── Background particle orbs ───────────────────────────────────────────── */
+.preloader-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
